@@ -1,3 +1,246 @@
+/****************
+	RESOURCES
+****************/
+/* notes:
+- changing ending
+ */
+/****************
+START STYLING
+****************/
+html {
+	min-height: 100%;
+}
 body {
-	background-color: cyan;
+	margin-top:  60px;
+	font-family: 'DM Sans', sans-serif;
+	background: linear-gradient(to bottom right, #9999ff 0%, #ff99cc 100%);
+}
+h1 {
+	color: white;
+	text-align: center;
+}
+/**** LARGE TEXT AREA ****/
+/* container of entire section */
+.mainTextAreaContainer td{
+	display: block;
+	margin-top: 0px;
+	padding-top: 40px;
+}
+/* container of question and answer optionss */
+.mainTextAreatd {
+	background-color: white;
+	padding: 30px;
+	margin:  0 auto;
+	margin-bottom: 1px;
+	border-radius: 5px 5px 0px 0px;
+	width:  550px;
+	text-align: center;
+}
+/* question */
+.mainTextAreaNumber {
+	font-weight: 800;
+	font-size: 1.5em;
+	display: inline-block;
+	width: 30px; height: 30px;
+	border-radius: 50px;
+	text-align: center;
+	padding: 5px;
+	margin-bottom: 10px;
+	color: white;
+	background-color: #d499e1;
+}
+.mainTextAreaQuestion {
+	font-weight: 600;
+}
+/* answer options */
+.mainTextArea {
+	border: none;
+	resize: none;
+	font-family: 'DM Sans', sans-serif;
+
+	margin: auto 20px;
+	font-size: 14px;
+}
+.mainTextArea > div {
+	display: inline-block;
+	white-space: pre-line; 
+	text-align:left;
+	line-height: 1.5em;
+}
+/* feedback section */
+.feedbackTextArea {
+	margin-top: 0px;
+	width:  550px;
+	padding:  15px 30px;
+	border: none;
+	border-radius: 0px 0px 5px 5px;
+
+	text-align: center;
+	font-weight: 500;
+	background-color: white;
+	color: #cd8ddb;
+}
+.feedbackTextArea > p{
+	height: 20px;
+	font-size: 14px;
+}
+/**** ANSWER SELECTION ****/
+.selectBox {
+	width: 405px;
+	padding: 15px;
+
+	background-color: white;
+	border:  none;
+	border-radius: 5px;
+	color: #d499e1;
+	cursor: pointer;
+	text-align: center;
+	font-weight: 800;
+}
+/* removes blue outline with box is clicked on */
+.selectBox:focus-visible, .mainTextArea:focus-visible, .feedbackTextArea:focus-visible {
+	outline: none;
+	border: none;
+}
+/* Buttons */
+.navigationArea {
+	margin-top: 50px;
+}
+.navButton {
+	border: none;
+	padding: 10px;
+	width: 150px;
+	border-radius: 3px;
+	margin-top: 20px;
+	margin-right: 3px; margin-left: 3px;
+	color: #d499e1;
+	background-color: #00000050;
+	cursor: pointer;
+}
+.navButton:hover {
+	background-color: #ffffff;
+}
+.startOver {
+	color: white;
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 15px;
+	text-decoration: none;
+	animation-duration: 300ms;
+}
+.startOver:hover{
+	text-decoration: underline;
+	animation-duration: 300ms;
+}
+/****************
+REUSABLE CLASSES 
+****************/
+.backgroundCorrect {
+	/*background: linear-gradient(to top left, #66ffff 0%, #ffcc99 100%);*/
+	background: linear-gradient(to bottom right, #9999ff 0%, #ff99cc 100%);
+}
+.backgroundWrong {
+	/*background: linear-gradient(to top left, #ff0000 0%, #ffcc99 100%);*/
+	background: linear-gradient(to bottom right, #9999ff 0%, #ff99cc 100%);
+}
+.displayNone {
+	display:  none;
+}
+.colorRed {
+	color: #ff675c!important;
+}
+.colorPurple {
+	color: #cd8ddb!important;
+}
+
+/*********************
+MOBILE RESPONSIVENESS
+*********************/
+@media only screen and (max-width: 626px) {
+  .mainTextAreatd {
+  	width: 80%;
+  }
+  .feedbackTextArea {
+  	width:  80%;
+  }
+  .mainTextAreatd textArea {
+  	width: 95%;
+  }
+}
+@media only screen and (max-width: 626px) {
+	.selectBox{
+		width: 90%;
+	}
+}
+
+/****************
+SHAKE ANIMATION 
+credit:  https://stackoverflow.com/questions/33210317/how-to-shake-login-form-on-error
+****************/
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.animated.infinite {
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+.animated.hinge {
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+.animated.bounceIn,
+.animated.bounceOut {
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+}
+
+.animated.flipOutX,
+.animated.flipOutY {
+  -webkit-animation-duration: .75s;
+  animation-duration: .75s;
+}
+
+@-webkit-keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  from, to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    -webkit-transform: translate3d(-10px, 0, 0);
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    -webkit-transform: translate3d(10px, 0, 0);
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  animation-name: shake;
 }

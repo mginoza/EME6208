@@ -1,86 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
     <title>EME 6208 Project 2</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+				<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- ANIMATION -->
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   </head>
+
+
   <body>
-				<script src="index.js"></script>
-				<h1> Melissa Ginoza </h1>
+				<script src="script.js"></script>
+				<h1> Color Quiz </h1>
+				
+  		<!--**********************
+ 						JAVASCRIPT KIT START 
+  		***********************-->
 				<div align="left">
 						<table border="0" cellspacing="0" cellpadding="0" width="100%">
 						  <tr>
 						    <td width="50%"><form method="POST" name="instantquiz">
 						      <table border="0" width="100%" cellspacing="0" cellpadding="0">
-						        <caption><strong>JavaScript Kit Pop Quiz</strong></caption>
-						        <tr>
-						          <td width="100%"><div align="center"><center><p><textarea rows="10" name="thequestion"
-						          cols="69" wrap="virtual"></textarea></td>
+										  		<!--*****************
+										 						QUIZ BOX AREA 
+										  		*******************-->
+						        <tr class="mainTextAreaContainer">
+						          <td width="100%" class="mainTextAreatd">
+								          <div align="center">
+								          <div class="mainTextAreaNumber"></div>
+								          <div class="mainTextAreaQuestion"></div>
+							          	<!-- <textarea rows="10" name="thequestion" cols="69" wrap="virtual" class="mainTextArea"></textarea> -->
+							          	<section class="mainTextArea"><div></div></section>
+						         	</td>
 						        </tr>
+						        	<!--*****************
+			        						SOLUTION AREA 
+				        		*******************-->
 						        <tr align="center">
-						          <td width="50%"><div align="center"><center><p><strong>Solution: </strong><input
-						          type="text" name="thesolution" size="35"></td>
+						          <td width="100%">
+							          	<strong class="displayNone">Solution: </strong>
+							          	<!-- <input type="text" name="thesolution" class="feedbackTextArea"> -->
+							          	<div class="feedbackTextArea"><p></p></div>
+						          </p></td>
 						        </tr>
+						        	<!--*****************
+			        						RESPONSE AREA 
+				        		*******************-->
 						        <tr align="center">
-						          <td width="100%"><div align="center"><center><p><strong>Your response:</strong> <select
-						          name="theresponse" size="1" onChange="responses()">
-						            <option value="-----">----</option>
-						            <option value="a">a</option>
-						            <option value="b">b</option>
-						            <option value="c">c</option>
-						            <option value="d">d</option>
-						          </select> <input type="button" value="&lt;&lt;Back" name="B1"
-						          onClick="if (whichone&gt;1){whichone--;generatequestions()}"> <input type="button"
-						          value="Next&gt;&gt;" name="B2"
-						          onClick="if (whichone&lt;=total){whichone++;generatequestions()}"><br>
-						          <small><a href="#" onClick="whichone=1;generatequestions();return false">Start Over</a> </small><input
-						          type="checkbox" name="cmode" value="ON"><small>Cheat Mode</small><p align="center"><font face="arial" size="-2">This free quiz script provided by</font><br> <font face="arial, helvetica" size="-2"><a href="http://javascriptkit.com">JavaScript Kit</a></font></p></td>
+						          <td width="100%"><div align="center">
+							          	<strong class="displayNone">Your response:</strong> 
+							          	<select name="theresponse" size="1" onChange="responses()" class="selectBox">
+								            <option value="-----">Select Answer</option>
+								            <option value="a">a</option>
+								            <option value="b">b</option>
+								            <option value="c">c</option>
+								            <option value="d">d</option>
+								          </select> 
+								          <br>
+								          <section class="navigationArea">
+										          <input type="button" class="navButton navButton1" value="&lt; Back" name="B1"
+										          onClick="if (whichone&gt;1){whichone--;generatequestions()}"> 
+										          <input type="button" class="navButton navButton2" value="Next &gt;" name="B2"
+										          onClick="if (whichone&lt;=total){whichone++;generatequestions()}">
+										          <a class="startOver" href="#" onClick="whichone=1;generatequestions();addNavigation();return false">Start Over</a>
+						          	</section>
+										        	<!--**********************
+							        					CREDIT - section hidden
+								        			************************-->
+								        		<div style="display: none;">
+								          		<input type="checkbox" name="cmode" value="ON">
+									          			<small>Cheat Mode</small>
+									          			<p align="center">
+										          				<font face="arial" size="-2">This free quiz script provided by</font>
+										          				<br> 
+										          				<font face="arial, helvetica" size="-2">
+													          			<a href="http://javascriptkit.com">JavaScript Kit</a>
+												          		</font>
+										          		</p>
+								          	</div>
+						         	</td>
 						        </tr>
 						      </table>
 						    </form>
 						    </td>
 						  </tr>
 						</table>
-
 				</div>
 
-				<script src="popsolution.js">
-
-				/*
-				Instant-grading multiple choice quiz-
-				By JavaScript Kit (www.javascriptkit.com)
-				Over 200+ free scripts here!
-				*/
-
-				</script>
 				<script language="JavaScript1.1">
-				var whichone=1
-				var tempmn=document.instantquiz.thequestion
-				function generatequestions(){
-				document.instantquiz.theresponse.selectedIndex=0
-				if (!document.instantquiz.cmode.checked||whichone>=total+1||whichone<=0)
-				document.instantquiz.thesolution.value=''
-				if (whichone>=total+1)
-				tempmn.value="End of quiz"
-				else{
-				tempmn.value=whichone+")"+question[whichone]+"\n\n"+"a)"+eval('choice'+whichone+'[1]')+"\n"+"b)"+eval('choice'+whichone+'[2]')+"\n"+"c)"+eval('choice'+whichone+'[3]')+"\n"+"d)"+eval('choice'+whichone+'[4]')
-				if (document.instantquiz.cmode.checked)
-				document.instantquiz.thesolution.value=solution[whichone]
-				}
-				}
+						var whichone=1;
+						var tempmn=document.querySelector('.mainTextArea > div');
 
-				function responses(){
-				var temp2=document.instantquiz.theresponse
-				var temp3=temp2.options[temp2.selectedIndex].text
-				if (temp3!=solution[whichone]&&temp2.selectedIndex!=0)
-				document.instantquiz.thesolution.value="Sorry, the correct answer is "+solution[whichone]
-				else if(temp2.selectedIndex!=0)
-				document.instantquiz.thesolution.value=compliments[Math.round(Math.random()*compliments.length-1)]
-				}
+						function generatequestions(){
+								document.instantquiz.theresponse.selectedIndex=0
+								if (!document.instantquiz.cmode.checked||whichone>=total+1||whichone<=0)
+							 document.querySelector('.feedbackTextArea > p').innerHTML="";
+								if (whichone>=total+1) {
+										removeNavigation();
+										document.querySelector('.mainTextAreaNumber').innerHTML="☺️";
+										document.querySelector('.mainTextAreaQuestion').innerHTML="";
+										tempmn.innerHTML="<h3 class='colorPurple'>Congratulations! You finished the quiz.</h3>";
+								}
+								else{
+								document.querySelector('.mainTextAreaNumber').innerHTML=whichone;
+								document.querySelector('.mainTextAreaQuestion').innerHTML=question[whichone];
+								tempmn.innerHTML=
+										"\n"+"<b class='colorPurple'>a)</b> "+eval('choice'+whichone+'[1]')+
+										"\n"+"<b class='colorPurple'>b)</b> "+eval('choice'+whichone+'[2]')+
+										"\n"+"<b class='colorPurple'>c)</b> "+eval('choice'+whichone+'[3]')+
+										"\n"+"<b class='colorPurple'>d)</b> "+eval('choice'+whichone+'[4]');
+								if (document.instantquiz.cmode.checked)
+								document.instantquiz.thesolution.value=solution[whichone]
+								}
+						}
 
-				generatequestions()
+						function responses(){
+								var temp2=document.instantquiz.theresponse;
+								var temp3=temp2.options[temp2.selectedIndex].text;
+								var selectFeedbackP = document.querySelector('.feedbackTextArea > p');
+								selectFeedbackP.classList.remove('shake','animated');
+								//*** WRONG ANSWER
+								if (temp3!=solution[whichone]&&temp2.selectedIndex!=0) {
+										selectFeedbackP.innerHTML="Sorry, "+temp3+' is not the correct answer';
+										/*code below allows animation to repeat*/
+										setTimeout(()=> selectFeedbackP.classList.add('shake','animated'),0); 
+										selectFeedbackP.classList.add('colorRed');
+								}
+								//*** RIGHT ANSWER
+								else if(temp2.selectedIndex!=0) {
+										var num = temp2.selectedIndex;
+										selectFeedbackP.innerHTML=correctmoreInfo[whichone];
+										selectFeedbackP.classList.remove('colorRed');
+								}
+						}
+						function removeNavigation() {
+								document.querySelector('.selectBox').classList.add('displayNone'); /* hides selection box*/
+								document.querySelector('.feedbackTextArea').classList.add('displayNone');
+								var list = document.querySelectorAll(".navButton");
+								for (var i = 0; i < list.length; ++i) {
+								   list[i].classList.add('displayNone');
+						  }
+						}
+						function addNavigation() {
+								document.querySelector('.selectBox').classList.remove('displayNone'); /* hides selection box*/
+								document.querySelector('.feedbackTextArea').classList.remove('displayNone');
+								var list = document.querySelectorAll(".navButton.displayNone");
+								for (var i = 0; i < list.length; ++i) {
+								   list[i].classList.remove('displayNone');
+						  }
+						}
+						generatequestions()
 				</script>
   </body>
 </html>
