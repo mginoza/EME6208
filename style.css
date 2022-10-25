@@ -10,6 +10,9 @@ h1 {
 	color: white;
 	text-align: center;
 }
+p, div {
+	font-size: 14px;
+}
 /**** LARGE TEXT AREA ****/
 /* container of entire section */
 .mainTextAreaContainer td{
@@ -30,7 +33,7 @@ h1 {
 /* question */
 .mainTextAreaNumber {
 	font-weight: 800;
-	font-size: 1.5em;
+	font-size: 1.7em!important;
 	display: inline-block;
 	width: 30px; height: 30px;
 	border-radius: 50px;
@@ -50,7 +53,6 @@ h1 {
 	font-family: 'DM Sans', sans-serif;
 
 	margin: auto 20px;
-	font-size: 14px;
 }
 .mainTextArea > div {
 	display: inline-block;
@@ -73,7 +75,6 @@ h1 {
 }
 .feedbackTextArea > p{
 	height: 20px;
-	font-size: 14px;
 }
 /**** ANSWER SELECTION ****/
 .selectBox {
