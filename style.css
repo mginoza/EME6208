@@ -11,7 +11,8 @@ h1 {
 	text-align: center;
 }
 p, div {
-	font-size: 14px;
+	font-size: 15px;
+	line-height: 1.5em;
 }
 /**** LARGE TEXT AREA ****/
 /* container of entire section */
@@ -34,6 +35,7 @@ p, div {
 .mainTextAreaNumber {
 	font-weight: 800;
 	font-size: 1.7em!important;
+	line-height: 1.3em;
 	display: inline-block;
 	width: 30px; height: 30px;
 	border-radius: 50px;
@@ -58,7 +60,7 @@ p, div {
 	display: inline-block;
 	white-space: pre-line; 
 	text-align:left;
-	line-height: 1.5em;
+	line-height: 1.7em;
 }
 /* feedback section */
 .feedbackTextArea {
