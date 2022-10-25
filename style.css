@@ -76,7 +76,7 @@ p, div {
 	color: #cd8ddb;
 }
 .feedbackTextArea > p{
-	height: 20px;
+	min-height: 24px;
 }
 /**** ANSWER SELECTION ****/
 .selectBox {
