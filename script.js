@@ -12,7 +12,7 @@ var solution=new Array()
 // Answers when correct
 var correctmoreInfo = new Array()
 correctmoreInfo[1]="Correct! Dogs can only see blue and yellow"
-correctmoreInfo[2]="Correct! This is helpful because many flowers have patterns in ultraviolet"
+correctmoreInfo[2]="Correct! This is helpful because many flowers have patterns visible only in ultraviolet"
 correctmoreInfo[3]="Correct! This allows them to see ultraviolet, infrared, and polarized light."
 correctmoreInfo[4]="Correct! He created the color wheel after discovering the visible spectrum of light"
 correctmoreInfo[5]="Correct! Blue is unlike any other color in nature because they are rarely pigments but rather distortions of light."
